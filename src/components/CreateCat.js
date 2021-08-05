@@ -22,7 +22,7 @@ function CreateCat() {
         const { cat_name, cat_pic, cat_breed, cat_age, cat_comment, cat_detail } = formData;
         const cat = { cat_name, cat_pic, cat_breed, cat_age, cat_comment, cat_detail };
 
-        const response = await axios.post('https://boiling-castle-06366.herokuapp.com/cat/add', cat);
+        const response = await axios.post('https://boiling-castle-06366.herokuapp.com/api/cat/add', cat);
 
         console.log(response);
 

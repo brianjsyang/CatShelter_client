@@ -13,7 +13,7 @@ function CatDelete(props) {
     const handleDelete = async (e) => {
         e.preventDefault();
 
-        const response = await axios.delete(`https://boiling-castle-06366.herokuapp.com/cat/${props.id}` );
+        const response = await axios.delete(`https://boiling-castle-06366.herokuapp.com/api/cat/${props.id}` );
 
         if(response.status === 200) {
             setShow(true);

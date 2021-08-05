@@ -9,7 +9,7 @@ function CatDetail() {
 
     useEffect(() => {
         const fetchCats = async () => {
-            const result = await axios(`https://boiling-castle-06366.herokuapp.com/cat/${id}`);
+            const result = await axios(`https://boiling-castle-06366.herokuapp.com/api/cat/${id}`);
 
             setCats(result.data);
             console.log(result.data);
