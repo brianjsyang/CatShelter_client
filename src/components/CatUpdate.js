@@ -38,7 +38,7 @@ function CatUpdate() {
         const { cat_name, cat_pic, cat_breed, cat_age, cat_comment, cat_detail, cat_adopted } = formData;
         const cat = { cat_name, cat_pic, cat_breed, cat_age, cat_comment, cat_detail, cat_adopted };
 
-        const response = await axios.put(`http://localhost:3500/api/cat/${id}`, cat);
+        const response = await axios.put(`https://boiling-castle-06366.herokuapp.com/api/cat/${id}`, cat);
 
         console.log(response.data);
 
