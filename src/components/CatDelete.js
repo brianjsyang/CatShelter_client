@@ -16,7 +16,7 @@ function CatDelete(props) {
         e.preventDefault();
 
         // API call for Heroku
-        const response = await axios.delete(`https://boiling-castle-06366.herokuapp.com/api/cat/${props.id}`);
+        const response = await axios.delete(`https://boiling-castle-06366.herokuapp.com/api/cat/${props._id}`);
 
         // API call for localhost
         //const response = await axios.delete(`http://localhost:3500/api/cat/${props.id}`);
