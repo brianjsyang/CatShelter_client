@@ -4,7 +4,6 @@ import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import NavBar from './components/NavBar';
-import Layout from './components/Layout';
 import Banner from './components/Banner';
 import ErrorPage from './components/ErrorPage';
 import CreateCat from './components/CreateCat';
@@ -15,9 +14,8 @@ function App() {
   return(
     <React.Fragment>
         <NavBar />
-        <Banner />
-        <Layout>
-         
+
+        {/* <Layout>
           <Switch >
             <Route exact path ="/" component={ Home } />
             <Route path ="/about" component={ About } />
@@ -26,8 +24,17 @@ function App() {
             <Route exact path ={"/:id"} component={ CatDetail } />
             <Route component={ ErrorPage } />
           </Switch>
+        </Layout>  */}
 
-        </Layout> 
+        <Switch >
+            <Route exact path ="/"> <Banner/> <Home/> </Route>
+            <Route path ="/about"> <Banner/> <About/> </Route>
+            <Route exact path ="/add"> <CreateCat/> </Route>
+            <Route path = "/update/:id"> <CatUpdate/> </Route>
+            <Route exact path ={"/:id"}> <CatDetail/> </Route>
+            <Route> <ErrorPage/> </Route>
+          </Switch>
+
     </React.Fragment>
   );
 }

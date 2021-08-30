@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
 import axios from 'axios';
 import CatItem from './CatItem';
 //fetch("http://localhost:3500/api/cat/")
@@ -8,7 +9,13 @@ function Home() {
 
   useEffect(() => {
     const fetchCats = async () => {
+
+      // API call for Heroku
       const result = await axios('https://boiling-castle-06366.herokuapp.com/api/cat/');
+
+      // API call for localhost
+      //const result = await axios('http://localhost:3500/api/cat/');
+
 
       setCats(result.data);
     };
@@ -18,13 +25,13 @@ function Home() {
   
   
   return(
-      <div>
-        <div className="row">
+      <Container>
+        <Row>
 
-          {cats.map(data => (<div className="col-md-4" key={data._id} > <CatItem cat={data} /> </div>) )}
+          {cats.map(data => (<Col md key={data._id} > <CatItem cat={data} /> </Col>) )}
 
-        </div>
-      </div>
+        </Row>
+      </Container>
     )
   
 }

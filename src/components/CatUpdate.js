@@ -1,3 +1,5 @@
+// Change API URL
+
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
@@ -21,9 +23,14 @@ function CatUpdate() {
     // Get current Cat data
     useEffect(() => {
         const fetchCats = async () => {
+
+            // API call for Heroku
             const result = await axios(`https://boiling-castle-06366.herokuapp.com/api/cat/${id}`);
 
-            
+            // API call for localhost
+            //const result = await axios(`http://localhost:3500/api/cat/${id}`);
+
+
             setFormData(result.data);
             console.log(result.data);
         };
@@ -38,7 +45,13 @@ function CatUpdate() {
         const { cat_name, cat_pic, cat_breed, cat_age, cat_comment, cat_detail, cat_adopted } = formData;
         const cat = { cat_name, cat_pic, cat_breed, cat_age, cat_comment, cat_detail, cat_adopted };
 
+
+        // API call for Heroku
         const response = await axios.put(`https://boiling-castle-06366.herokuapp.com/api/cat/${id}`, cat);
+
+        // API call for localhost
+        //const response = await axios.put(`http://localhost:3500/api/cat/${id}`, cat);
+
 
         console.log(response.data);
 

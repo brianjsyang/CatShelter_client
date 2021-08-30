@@ -1,3 +1,5 @@
+// Change API URL
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
@@ -22,7 +24,13 @@ function CreateCat() {
         const { cat_name, cat_pic, cat_breed, cat_age, cat_comment, cat_detail } = formData;
         const cat = { cat_name, cat_pic, cat_breed, cat_age, cat_comment, cat_detail };
 
+
+        // API call for Heroku
         const response = await axios.post('https://boiling-castle-06366.herokuapp.com/api/cat/add', cat);
+
+        // API call for localhost
+        //const response = await axios.post('http://localhost:3500/api/cat/add', cat);
+
 
         console.log(response);
 
